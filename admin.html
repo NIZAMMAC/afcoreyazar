@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>afcore Admin Console — Store Control Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <div class="admin-shell">
+    <!-- ======================================================================
+         LEFT SIDEBAR
+         ====================================================================== -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-top">
+        <div class="sidebar-brand">
+          <a href="index.html" class="sidebar-logo" id="admin-brand-logo">afcore</a>
+          <span class="sidebar-badge">Admin</span>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Admin sections">
+          <span class="sidebar-section-label">Management</span>
+          <button class="sidebar-link active" data-section="dashboard">
+            <span class="sidebar-link-left">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.7"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.7"/><rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.7"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.7"/></svg>
+              <span>Overview</span>
+            </span>
+          </button>
+
+          <button class="sidebar-link" data-section="products">
+            <span class="sidebar-link-left">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 16V8C21 6.9 20.1 6 19 6H5C3.9 6 3 6.9 3 8V16C3 17.1 3.9 18 5 18H19C20.1 18 21 17.1 21 16Z" stroke="currentColor" stroke-width="1.7"/><path d="M3 10H21" stroke="currentColor" stroke-width="1.7"/></svg>
+              <span>Products &amp; Inventory</span>
+            </span>
+            <span class="sidebar-count" id="nav-count-products">6</span>
+          </button>
+
+          <button class="sidebar-link" data-section="orders">
+            <span class="sidebar-link-left">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 2L3 6V20C3 21.1 3.9 22 5 22H19C20.1 22 21 21.1 21 20V6L18 2H6Z" stroke="currentColor" stroke-width="1.7"/><path d="M3 6H21" stroke="currentColor" stroke-width="1.7"/><path d="M16 10C16 12.2 14.2 14 12 14C9.8 14 8 12.2 8 10" stroke="currentColor" stroke-width="1.7"/></svg>
+              <span>Orders &amp; Live Cart</span>
+            </span>
+            <span class="sidebar-count" id="nav-count-orders">4</span>
+          </button>
+
+          <span class="sidebar-section-label">Storefront Control</span>
+          <button class="sidebar-link" data-section="cms">
+            <span class="sidebar-link-left">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 20H21M16.5 3.5C17.3 2.7 18.7 2.7 19.5 3.5C20.3 4.3 20.3 5.7 19.5 6.5L7 19L3 20L4 16L16.5 3.5Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Storefront CMS</span>
+            </span>
+          </button>
+
+          <button class="sidebar-link" data-section="promos">
+            <span class="sidebar-link-left">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20.59 13.41L13.42 20.58C12.63 21.37 11.36 21.37 10.58 20.58L2 12V2H12L20.59 10.59C21.37 11.37 21.37 12.63 20.59 13.41Z" stroke="currentColor" stroke-width="1.7"/><circle cx="7" cy="7" r="1.5" fill="currentColor"/></svg>
+              <span>Promotions</span>
+            </span>
+            <span class="sidebar-count" id="nav-count-promos">3</span>
+          </button>
+
+          <button class="sidebar-link" data-section="settings">
+            <span class="sidebar-link-left">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.7"/><path d="M19.4 15A1.65 1.65 0 0 0 19.73 16.82L19.79 16.88A2 2 0 1 1 16.96 19.71L16.9 19.65A1.65 1.65 0 0 0 15.08 19.32A1.65 1.65 0 0 0 14 20.85V21A2 2 0 1 1 10 21V20.91A1.65 1.65 0 0 0 8.92 19.38A1.65 1.65 0 0 0 7.1 19.71L7.04 19.77A2 2 0 1 1 4.21 16.94L4.27 16.88A1.65 1.65 0 0 0 4.6 15.06A1.65 1.65 0 0 0 3.07 14H3A2 2 0 1 1 3 10H3.09A1.65 1.65 0 0 0 4.62 8.92A1.65 1.65 0 0 0 4.29 7.1L4.23 7.04A2 2 0 1 1 7.06 4.21L7.12 4.27A1.65 1.65 0 0 0 8.94 4.6H9A1.65 1.65 0 0 0 10 3.09V3A2 2 0 1 1 14 3V3.09A1.65 1.65 0 0 0 15.08 4.62A1.65 1.65 0 0 0 16.9 4.29L16.96 4.23A2 2 0 1 1 19.79 7.06L19.73 7.12A1.65 1.65 0 0 0 19.4 8.94V9A1.65 1.65 0 0 0 20.91 10H21A2 2 0 1 1 21 14H20.91A1.65 1.65 0 0 0 19.4 15Z" stroke="currentColor" stroke-width="1.7"/></svg>
+              <span>Theme &amp; System</span>
+            </span>
+          </button>
+        </nav>
+      </div>
+
+      <div class="sidebar-bottom">
+        <a href="index.html" class="storefront-launch-btn">
+          <span>View Live Storefront</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <button class="btn btn-outline btn-sm" id="sidebar-reset-defaults" style="width: 100%;">
+          Reset to Figma Defaults
+        </button>
+      </div>
+    </aside>
+
+    <!-- ======================================================================
+         MAIN ADMIN AREA
+         ====================================================================== -->
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div class="topbar-title-group">
+          <h1 class="topbar-title" id="topbar-title">Overview</h1>
+          <p class="topbar-subtitle" id="topbar-subtitle">Real-time control over products, storefront layout, orders, and promotions.</p>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="btn btn-outline" id="quick-add-product-btn">+ New Product</button>
+          <a href="index.html" class="btn btn-primary">Open Storefront ↗</a>
+        </div>
+      </header>
+
+      <div class="admin-content">
+
+        <!-- ==================================================================
+             SECTION 1: OVERVIEW DASHBOARD
+             ================================================================== -->
+        <section id="section-dashboard" class="admin-section">
+          <div class="kpi-grid" style="margin-bottom: 28px;">
+            <div class="kpi-card">
+              <span class="kpi-label">Total Revenue (Qatar)</span>
+              <span class="kpi-value" id="kpi-revenue">QAR 5,088</span>
+              <span class="kpi-meta" id="kpi-revenue-meta">Across 4 orders · Avg QAR 1,272</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-label">Catalog &amp; Stock (Doha)</span>
+              <span class="kpi-value" id="kpi-products">6 / 6</span>
+              <span class="kpi-meta" id="kpi-products-meta">All products in stock · 178 total units</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-label">Active Customer Cart</span>
+              <span class="kpi-value" id="kpi-cart">QAR 1,485</span>
+              <span class="kpi-meta" id="kpi-cart-meta">2 items currently in cart</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-label">Active Promotions</span>
+              <span class="kpi-value" id="kpi-promos">3</span>
+              <span class="kpi-meta" id="kpi-promos-meta">Free Doha delivery over QAR 350</span>
+            </div>
+          </div>
+
+          <div class="form-grid-2" style="align-items: start;">
+            <!-- Recent Orders -->
+            <div class="panel-card">
+              <div class="panel-header">
+                <div class="panel-title-group">
+                  <h2 class="panel-title">Recent Orders</h2>
+                  <p class="panel-subtitle">Latest customer purchases from the storefront</p>
+                </div>
+                <button class="btn btn-outline btn-sm" onclick="switchAdminSection('orders')">View all</button>
+              </div>
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Order</th>
+                    <th>Customer</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody id="dashboard-orders-tbody"></tbody>
+              </table>
+            </div>
+
+            <!-- Inventory Snapshot -->
+            <div class="panel-card">
+              <div class="panel-header">
+                <div class="panel-title-group">
+                  <h2 class="panel-title">Catalog Quick Toggles</h2>
+                  <p class="panel-subtitle">Instantly toggle stock status or Home page placement</p>
+                </div>
+                <button class="btn btn-outline btn-sm" onclick="switchAdminSection('products')">Manage all</button>
+              </div>
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>In Stock</th>
+                    <th>Home Featured</th>
+                  </tr>
+                </thead>
+                <tbody id="dashboard-products-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 2: PRODUCTS & INVENTORY
+             ================================================================== -->
+        <section id="section-products" class="admin-section" style="display: none;">
+          <div class="panel-card">
+            <div class="panel-header">
+              <div class="panel-title-group">
+                <h2 class="panel-title">All Products</h2>
+                <p class="panel-subtitle">Add, edit, re-price, badge, or toggle availability for any product in the catalog.</p>
+              </div>
+              <div style="display: flex; gap: 10px; align-items: center;">
+                <input type="text" id="admin-product-search" class="field-input" placeholder="Filter products..." style="width: 220px; height: 36px;" />
+                <button class="btn btn-primary btn-sm" id="add-product-btn">+ Add Product</button>
+              </div>
+            </div>
+
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                  <th>Badge</th>
+                  <th>Stock Units</th>
+                  <th>In Stock</th>
+                  <th>Home Featured</th>
+                  <th style="text-align: right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-products-tbody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 3: ORDERS & LIVE CART
+             ================================================================== -->
+        <section id="section-orders" class="admin-section" style="display: none;">
+          <div class="panel-card" style="margin-bottom: 28px;">
+            <div class="panel-header">
+              <div class="panel-title-group">
+                <h2 class="panel-title">Customer Orders</h2>
+                <p class="panel-subtitle">Update fulfillment status or inspect line items. Orders placed on the storefront appear here live.</p>
+              </div>
+              <div style="display: flex; gap: 10px;">
+                <select id="admin-order-status-filter" class="field-select" style="width: 160px; height: 34px;">
+                  <option value="ALL">All Statuses</option>
+                  <option value="Processing">Processing</option>
+                  <option value="Shipped">Shipped</option>
+                  <option value="Delivered">Delivered</option>
+                  <option value="Cancelled">Cancelled</option>
+                </select>
+                <button class="btn btn-outline btn-sm" id="create-demo-order-btn">+ Simulate Order</button>
+              </div>
+            </div>
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Date</th>
+                  <th>Customer &amp; Shipping</th>
+                  <th>Items</th>
+                  <th>Total</th>
+                  <th>Fulfillment Status</th>
+                  <th style="text-align: right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-orders-tbody"></tbody>
+            </table>
+          </div>
+
+          <!-- Live Active Customer Cart Control -->
+          <div class="panel-card">
+            <div class="panel-header">
+              <div class="panel-title-group">
+                <h2 class="panel-title">Live Customer Cart Inspector</h2>
+                <p class="panel-subtitle">Control the active shopping cart session shown on Screen 4 (Shopping cart) of the storefront.</p>
+              </div>
+              <div style="display: flex; gap: 10px;">
+                <button class="btn btn-outline btn-sm" id="admin-reset-figma-cart-btn">Restore 2-Item Cart (QAR 1,485)</button>
+                <button class="btn btn-danger-outline btn-sm" id="admin-clear-cart-btn">Empty Cart</button>
+              </div>
+            </div>
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Product in Cart</th>
+                  <th>Variant</th>
+                  <th>Unit Price</th>
+                  <th>Quantity</th>
+                  <th>Line Total</th>
+                  <th style="text-align: right;">Remove</th>
+                </tr>
+              </thead>
+              <tbody id="admin-live-cart-tbody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 4: STOREFRONT CMS (HERO, ANNOUNCEMENT, CATEGORIES)
+             ================================================================== -->
+        <section id="section-cms" class="admin-section" style="display: none;">
+          <!-- Announcement & Shipping Rules -->
+          <div class="panel-card" style="margin-bottom: 24px;">
+            <div class="panel-header">
+              <div class="panel-title-group">
+                <h2 class="panel-title">Announcement Bar &amp; Qatar Delivery Threshold</h2>
+                <p class="panel-subtitle">Controls the top banner across all 4 screens and the free Doha/Qatar delivery calculator in Cart.</p>
+              </div>
+              <button class="btn btn-primary btn-sm" id="save-cms-top-btn">Save Changes</button>
+            </div>
+            <div class="panel-body form-grid-3">
+              <div class="field-group" style="grid-column: span 2;">
+                <label class="field-label">
+                  <span>Announcement Bar Copy</span>
+                  <span class="field-hint">Top 32px banner</span>
+                </label>
+                <input type="text" id="cms-announcement-text" class="field-input" />
+              </div>
+              <div class="field-group">
+                <label class="field-label">
+                  <span>Show Announcement Bar</span>
+                </label>
+                <div style="display: flex; align-items: center; gap: 10px; height: 40px;">
+                  <button class="switch active" id="cms-announcement-toggle" type="button"><span class="switch-thumb"></span></button>
+                  <span style="font-size: 13px;" id="cms-announcement-status">Visible</span>
+                </div>
+              </div>
+              <div class="field-group">
+                <label class="field-label">
+                  <span>Free Delivery Threshold (QAR)</span>
+                  <span class="field-hint">Default QAR 350</span>
+                </label>
+                <input type="number" id="cms-free-shipping-threshold" class="field-input" min="0" step="10" />
+              </div>
+              <div class="field-group">
+                <label class="field-label">
+                  <span>Standard Delivery Fee (QAR)</span>
+                  <span class="field-hint">Below threshold (Default QAR 35)</span>
+                </label>
+                <input type="number" id="cms-shipping-fee" class="field-input" min="0" step="1" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Editorial Banner -->
+          <div class="panel-card" style="margin-bottom: 24px;">
+            <div class="panel-header">
+              <div class="panel-title-group">
+                <h2 class="panel-title">Home Hero Banner (`[2:3218]`)</h2>
+                <p class="panel-subtitle">Customize the featured collection hero copy, call-to-action, editorial photo, and floating product badge.</p>
+              </div>
+              <button class="btn btn-primary btn-sm" id="save-cms-hero-btn">Save Hero</button>
+            </div>
+            <div class="panel-body form-grid-2">
+              <div class="field-group">
+                <label class="field-label">Eyebrow Label</label>
+                <input type="text" id="cms-hero-eyebrow" class="field-input" />
+              </div>
+              <div class="field-group">
+                <label class="field-label">CTA Button Label</label>
+                <input type="text" id="cms-hero-cta" class="field-input" />
+              </div>
+              <div class="field-group">
+                <label class="field-label">Headline (use newline for line break)</label>
+                <textarea id="cms-hero-headline" class="field-textarea"></textarea>
+              </div>
+              <div class="field-group">
+                <label class="field-label">Editorial Description</label>
+                <textarea id="cms-hero-desc" class="field-textarea"></textarea>
+              </div>
+              <div class="field-group">
+                <label class="field-label">Hero Image URL</label>
+                <input type="text" id="cms-hero-image" class="field-input" />
+              </div>
+              <div class="field-group">
+                <label class="field-label">Floating Caption Linked Product</label>
+                <select id="cms-hero-product-select" class="field-select"></select>
+              </div>
+              <div class="field-group">
+                <label class="field-label">Floating Caption Title</label>
+                <input type="text" id="cms-hero-caption-title" class="field-input" />
+              </div>
+              <div class="field-group">
+                <label class="field-label">Floating Caption Subtitle</label>
+                <input type="text" id="cms-hero-caption-desc" class="field-input" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Category Cards & Section Headings -->
+          <div class="panel-card">
+            <div class="panel-header">
+              <div class="panel-title-group">
+                <h2 class="panel-title">Section Headings &amp; Category Cards</h2>
+                <p class="panel-subtitle">Control section titles across Home, Catalog, and Footer.</p>
+              </div>
+              <button class="btn btn-primary btn-sm" id="save-cms-sections-btn">Save Sections</button>
+            </div>
+            <div class="panel-body">
+              <div class="form-grid-2" style="margin-bottom: 24px;">
+                <div class="field-group">
+                  <label class="field-label">Categories Section Heading</label>
+                  <input type="text" id="cms-cat-heading" class="field-input" />
+                </div>
+                <div class="field-group">
+                  <label class="field-label">Favorites Section Heading</label>
+                  <input type="text" id="cms-fav-heading" class="field-input" />
+                </div>
+                <div class="field-group">
+                  <label class="field-label">Favorites Section Subtitle</label>
+                  <input type="text" id="cms-fav-subtext" class="field-input" />
+                </div>
+                <div class="field-group">
+                  <label class="field-label">Catalog Page Headline</label>
+                  <input type="text" id="cms-catalog-title" class="field-input" />
+                </div>
+                <div class="field-group">
+                  <label class="field-label">Catalog Page Subtitle</label>
+                  <input type="text" id="cms-catalog-subtitle" class="field-input" />
+                </div>
+                <div class="field-group">
+                  <label class="field-label">Footer Brand Promise</label>
+                  <input type="text" id="cms-brand-promise" class="field-input" />
+                </div>
+              </div>
+
+              <h3 style="font-size: 13px; font-weight: 600; margin-bottom: 14px; color: var(--color-ink);">Shop by Category Cards (Audio, Computing, Accessories)</h3>
+              <div class="form-grid-3" id="cms-categories-cards-editor"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 5: PROMOTIONS & DISCOUNT CODES
+             ================================================================== -->
+        <section id="section-promos" class="admin-section" style="display: none;">
+          <div class="panel-card">
+            <div class="panel-header">
+              <div class="panel-title-group">
+                <h2 class="panel-title">Promo Codes</h2>
+                <p class="panel-subtitle">Create or toggle discount codes redeemable in the Shopping Cart.</p>
+              </div>
+            </div>
+            <div class="panel-body" style="border-bottom: 1px solid var(--color-border); background-color: var(--color-surface);">
+              <form id="add-promo-form" class="form-grid-3" style="align-items: end;">
+                <div class="field-group">
+                  <label class="field-label">Promo Code (e.g. SUMMER15)</label>
+                  <input type="text" id="new-promo-code" class="field-input" placeholder="SUMMER15" required style="text-transform: uppercase;" />
+                </div>
+                <div class="field-group">
+                  <label class="field-label">Discount Percentage (%)</label>
+                  <input type="number" id="new-promo-pct" class="field-input" placeholder="15" min="1" max="95" required />
+                </div>
+                <div style="display: flex; gap: 10px;">
+                  <input type="text" id="new-promo-desc" class="field-input" placeholder="Description (optional)" style="flex: 1;" />
+                  <button type="submit" class="btn btn-primary">+ Create Code</button>
+                </div>
+              </form>
+            </div>
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Code</th>
+                  <th>Discount</th>
+                  <th>Description</th>
+                  <th>Redemptions</th>
+                  <th>Active</th>
+                  <th style="text-align: right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-promos-tbody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 6: THEME & SYSTEM DATA
+             ================================================================== -->
+        <section id="section-settings" class="admin-section" style="display: none;">
+          <div class="form-grid-2" style="align-items: start;">
+            <div class="panel-card">
+              <div class="panel-header">
+                <div class="panel-title-group">
+                  <h2 class="panel-title">Brand &amp; Design System Tokens</h2>
+                  <p class="panel-subtitle">Customize storefront brand identity and Figma color tokens.</p>
+                </div>
+                <button class="btn btn-primary btn-sm" id="save-theme-btn">Save Theme</button>
+              </div>
+              <div class="panel-body" style="display: flex; flex-direction: column; gap: 18px;">
+                <div class="field-group">
+                  <label class="field-label">Brand Wordmark</label>
+                  <input type="text" id="theme-brand-name" class="field-input" />
+                </div>
+                <div class="field-group">
+                  <label class="field-label">Copyright Line</label>
+                  <input type="text" id="theme-copyright" class="field-input" />
+                </div>
+                <div class="field-group">
+                  <label class="field-label">
+                    <span>Primary Accent / CTA Color</span>
+                    <span class="field-hint">Figma default: #2458DF</span>
+                  </label>
+                  <div style="display: flex; gap: 10px;">
+                    <input type="color" id="theme-primary-picker" style="width: 48px; height: 40px; border: 1px solid var(--color-border); border-radius: 4px; cursor: pointer;" />
+                    <input type="text" id="theme-primary-hex" class="field-input" />
+                  </div>
+                </div>
+                <div class="field-group">
+                  <label class="field-label">
+                    <span>Primary Ink Color</span>
+                    <span class="field-hint">Figma default: #202322</span>
+                  </label>
+                  <div style="display: flex; gap: 10px;">
+                    <input type="color" id="theme-ink-picker" style="width: 48px; height: 40px; border: 1px solid var(--color-border); border-radius: 4px; cursor: pointer;" />
+                    <input type="text" id="theme-ink-hex" class="field-input" />
+                  </div>
+                </div>
+                <div class="field-group">
+                  <label class="field-label">
+                    <span>Secondary Surface Color</span>
+                    <span class="field-hint">Figma default: #F4F5F2</span>
+                  </label>
+                  <div style="display: flex; gap: 10px;">
+                    <input type="color" id="theme-surface-picker" style="width: 48px; height: 40px; border: 1px solid var(--color-border); border-radius: 4px; cursor: pointer;" />
+                    <input type="text" id="theme-surface-hex" class="field-input" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel-card">
+              <div class="panel-header">
+                <div class="panel-title-group">
+                  <h2 class="panel-title">Backup, Export &amp; Factory Reset</h2>
+                  <p class="panel-subtitle">Export your store configuration as JSON or restore the exact Figma state.</p>
+                </div>
+              </div>
+              <div class="panel-body" style="display: flex; flex-direction: column; gap: 16px;">
+                <p style="font-size: 13px; color: var(--color-muted); line-height: 1.6;">
+                  All changes made in the Admin Console are persisted in <code>localStorage</code> and synced live with the Storefront.
+                </p>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                  <button class="btn btn-outline" id="export-json-btn">Export Store JSON</button>
+                  <label class="btn btn-outline" style="cursor: pointer;">
+                    <span>Import Store JSON</span>
+                    <input type="file" id="import-json-input" accept=".json" style="display: none;" />
+                  </label>
+                  <button class="btn btn-danger-outline" id="factory-reset-btn">Reset All to Figma Defaults</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       PRODUCT ADD / EDIT MODAL
+       ======================================================================== -->
+  <div class="admin-modal-backdrop" id="product-modal">
+    <div class="admin-modal">
+      <div class="admin-modal-header">
+        <h2 style="font-size: 18px; font-weight: 600;" id="product-modal-title">Edit Product</h2>
+        <button id="close-product-modal" style="font-size: 18px; color: var(--color-muted);">✕</button>
+      </div>
+      <div class="admin-modal-body">
+        <input type="hidden" id="edit-prod-id" />
+        <div class="form-grid-3">
+          <div class="field-group">
+            <label class="field-label">Product Name</label>
+            <input type="text" id="edit-prod-name" class="field-input" placeholder="e.g. WH-1000XM5" />
+          </div>
+          <div class="field-group">
+            <label class="field-label">Brand</label>
+            <input type="text" id="edit-prod-brand" class="field-input" placeholder="e.g. Sony" />
+          </div>
+          <div class="field-group">
+            <label class="field-label">Category</label>
+            <select id="edit-prod-category" class="field-select">
+              <option value="Audio">Audio</option>
+              <option value="Computing">Computing</option>
+              <option value="Accessories">Accessories</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid-3">
+          <div class="field-group">
+            <label class="field-label">Price (QAR)</label>
+            <input type="number" id="edit-prod-price" class="field-input" min="0" step="1" />
+          </div>
+          <div class="field-group">
+            <label class="field-label">Product Badge</label>
+            <select id="edit-prod-badge" class="field-select">
+              <option value="">None</option>
+              <option value="Bestseller">Bestseller</option>
+              <option value="New arrival">New arrival</option>
+              <option value="Limited edition">Limited edition</option>
+              <option value="Staff pick">Staff pick</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Stock Count</label>
+            <input type="number" id="edit-prod-stock" class="field-input" min="0" step="1" />
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="field-group">
+            <label class="field-label">Short Descriptor (Card Subtitle)</label>
+            <input type="text" id="edit-prod-short-desc" class="field-input" placeholder="Wireless noise-canceling headphones" />
+          </div>
+          <div class="field-group">
+            <label class="field-label">Default Cart Variant Label</label>
+            <input type="text" id="edit-prod-variant" class="field-input" placeholder="Black · Wireless noise-canceling headphones" />
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Editorial Description (Product Detail Page)</label>
+          <textarea id="edit-prod-long-desc" class="field-textarea"></textarea>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="field-group">
+            <label class="field-label">
+              <span>Product Image URL or Data URI</span>
+            </label>
+            <input type="text" id="edit-prod-image" class="field-input" />
+          </div>
+          <div class="field-group">
+            <label class="field-label">Or Choose from Figma Studio Library</label>
+            <select id="edit-prod-figma-image" class="field-select">
+              <option value="">— Select a studio photo —</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="field-group">
+            <label class="field-label">Specifications (Left Column — Label: Value per line)</label>
+            <textarea id="edit-prod-specs-left" class="field-textarea" placeholder="Driver unit: 30 mm dynamic driver"></textarea>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Specifications (Right Column — Label: Value per line)</label>
+            <textarea id="edit-prod-specs-right" class="field-textarea" placeholder="Weight: 250 g"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="admin-modal-footer">
+        <button class="btn btn-outline" id="cancel-product-modal">Cancel</button>
+        <button class="btn btn-primary" id="save-product-modal">Save Product</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-toast" id="admin-toast">Saved changes</div>
+
+  <script src="store-data.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

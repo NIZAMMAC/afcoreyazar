@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>afcore — Good technology. Less noise.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ========================================================================
+       SHARED HEADER / NAVIGATION (1440 x 120)
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="announcement-bar" id="site-announcement-bar">
+      <span id="site-announcement-text">Thoughtfully selected tech in Qatar · Free same-day Doha delivery on orders over QAR 350.</span>
+    </div>
+    <div class="main-nav-wrapper">
+      <div class="container main-nav">
+        <a href="#home" class="brand-logo" id="site-brand-logo" data-go-home>afcore</a>
+
+        <nav class="browse-links" aria-label="Main navigation">
+          <a href="#home" class="nav-link active" data-nav="Home">Home</a>
+          <a href="#catalog" class="nav-link" data-nav="Shop all">Shop all</a>
+          <a href="#audio" class="nav-link" data-nav="Audio">Audio</a>
+          <a href="#computing" class="nav-link" data-nav="Computing">Computing</a>
+          <a href="#accessories" class="nav-link" data-nav="Accessories">Accessories</a>
+        </nav>
+
+        <div class="nav-utilities">
+          <button class="utility-btn" id="header-search-btn" aria-label="Search products" title="Search products">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <circle cx="9.16667" cy="9.16667" r="5.83333" stroke="#202322" stroke-width="1.5"/>
+              <path d="M13.5 13.5L17.0833 17.0833" stroke="#202322" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <a href="admin.html" class="utility-btn" id="header-admin-btn" aria-label="Admin Console" title="Open Admin Console">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="6.66667" r="3.33333" stroke="#202322" stroke-width="1.5"/>
+              <path d="M4.16667 16.6667C4.16667 13.9052 6.77834 11.6667 10 11.6667C13.2217 11.6667 15.8333 13.9052 15.8333 16.6667" stroke="#202322" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </a>
+          <button class="cart-link utility-btn" id="header-cart-btn" aria-label="Shopping cart" title="Shopping cart">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M5 1.66667L2.5 5V16.6667C2.5 17.5871 3.24619 18.3333 4.16667 18.3333H15.8333C16.7538 18.3333 17.5 17.5871 17.5 16.6667V5L15 1.66667H5Z" stroke="#202322" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2.5 5H17.5" stroke="#202322" stroke-width="1.4" stroke-linecap="round"/>
+              <path d="M13.3333 8.33333C13.3333 10.1743 11.841 11.6667 10 11.6667C8.15905 11.6667 6.66667 10.1743 6.66667 8.33333" stroke="#202322" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+            <span id="nav-cart-count">(2)</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       SCREEN 1: STOREFRONT HOME ([2:3199])
+       ======================================================================== -->
+  <main id="view-home">
+    <!-- Featured Collection Hero -->
+    <section class="container hero-section">
+      <div class="hero-card">
+        <div class="hero-copy">
+          <span class="hero-eyebrow" id="home-hero-eyebrow">TECH FOR YOUR EVERYDAY · QATAR</span>
+          <h1 class="hero-headline" id="home-hero-headline">Less noise.<br/>More possibility.</h1>
+          <p class="hero-description" id="home-hero-desc">
+            Discover considered electronics that make work, listening, and living feel a little better — with same-day delivery in Doha.
+          </p>
+          <button class="btn-primary" id="hero-explore-btn">
+            <span id="home-hero-cta">Explore the collection</span>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M3.75 9H14.25M14.25 9L9.375 4.125M14.25 9L9.375 13.875" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="hero-image-wrap">
+          <img id="home-hero-img" src="assets/images/0bc2130c901207128f822f0a7300b85e4efcade3.png" alt="Sony WH-1000XM5 Headphone editorial" />
+          <div class="hero-caption-card" id="hero-caption-card">
+            <span class="hero-caption-title" id="home-hero-caption-title">Sony WH-1000XM5</span>
+            <span class="hero-caption-desc" id="home-hero-caption-desc">Your world, uninterrupted. — QAR 1,270</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shop by Category -->
+    <section class="container categories-section">
+      <h2 class="section-heading-sm" id="home-categories-heading">Made for the way you live.</h2>
+      <div class="category-grid" id="home-categories-grid"></div>
+    </section>
+
+    <!-- Everyday Favorites -->
+    <section class="container favorites-section">
+      <div class="section-intro-row">
+        <div class="heading-group">
+          <h2 class="section-heading-md" id="home-favorites-heading">Everyday favorites.</h2>
+          <p class="section-subtext" id="home-favorites-subtext">Well-designed. Well-loved. Ready for same-day delivery in Doha.</p>
+        </div>
+        <a href="#catalog" class="browse-all-link" id="home-shop-all-link">
+          <span>Shop all products</span>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M3.75 9H14.25M14.25 9L9.375 4.125M14.25 9L9.375 13.875" stroke="#202322" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="product-grid-4" id="home-favorites-grid"></div>
+    </section>
+
+    <!-- Shopping Promises -->
+    <section class="promises-section">
+      <div class="container promises-grid">
+        <div class="promise-item">
+          <svg class="promise-icon" viewBox="0 0 24 24" fill="none">
+            <path d="M14 18V6C14 4.89543 13.1046 4 12 4H4C2.89543 4 2 4.89543 2 6V17C2 17.5523 2.44772 18 3 18H5M14 18H9M14 18H17M14 8H18.5858C18.851 8 19.1054 8.10536 19.2929 8.29289L21.7071 10.7071C21.8946 10.8946 22 11.149 22 11.4142V17C22 17.5523 21.5523 18 21 18H20M9 18C9 19.1046 8.10457 20 7 20C5.89543 20 5 19.1046 5 18M9 18C9 16.8954 8.10457 16 7 16C5.89543 16 5 16.8954 5 18M20 18C20 19.1046 19.1046 20 18 20C16.8954 20 16 19.1046 16 18M20 18C20 16.8954 19.1046 16 18 16C16.8954 16 16 16.8954 16 18" stroke="#202322" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="promise-copy">
+            <span class="promise-title">Same-day Doha delivery</span>
+            <span class="promise-desc" id="promise-shipping-desc">Free delivery across Qatar on orders over QAR 350.</span>
+          </div>
+        </div>
+
+        <div class="promise-item">
+          <svg class="promise-icon" viewBox="0 0 24 24" fill="none">
+            <path d="M3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C9.5 21 7.26 19.96 5.64 18.28M3 12L5.5 9.5M3 12L5.5 14.5" stroke="#202322" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="promise-copy">
+            <span class="promise-title">14-day room to decide</span>
+            <span class="promise-desc">Easy returns across Doha, Lusail &amp; Al Wakrah.</span>
+          </div>
+        </div>
+
+        <div class="promise-item">
+          <svg class="promise-icon" viewBox="0 0 24 24" fill="none">
+            <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="#202322" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 12L11 14L15 10" stroke="#202322" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="promise-copy">
+            <span class="promise-title">Official Qatar warranty</span>
+            <span class="promise-desc">Authentic products. Full local manufacturer warranty.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       SCREEN 2: PRODUCT CATALOG ([2:3334])
+       ======================================================================== -->
+  <main id="view-catalog" style="display: none;">
+    <div class="container catalog-page">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="#home" data-go-home>Home</a>
+        <span class="sep">/</span>
+        <span class="current" id="catalog-breadcrumb-current">Shop all</span>
+      </nav>
+
+      <div class="catalog-intro">
+        <div class="catalog-heading-group">
+          <h1 class="page-title-lg" id="catalog-page-title">Good tech. Simply selected.</h1>
+          <p class="catalog-subtitle" id="catalog-page-subtitle">
+            Essentials for better listening, focused work, and everything in between — stocked in Qatar.
+          </p>
+        </div>
+
+        <div class="search-box">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <circle cx="8.25" cy="8.25" r="5.25" stroke="#202322" stroke-width="1.4"/>
+            <path d="M12.15 12.15L15.375 15.375" stroke="#202322" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <input type="text" id="catalog-search-input" placeholder="Search products" aria-label="Search products" />
+        </div>
+      </div>
+
+      <!-- Mobile Filter Toggle Button -->
+      <button class="mobile-filter-toggle-btn" id="mobile-filter-toggle-btn" type="button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M4 6H20M7 12H17M10 18H14" stroke="#202322" stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+        <span id="mobile-filter-toggle-label">Filters &amp; Categories</span>
+      </button>
+
+      <div class="catalog-workspace">
+        <!-- Filters Sidebar (216px) -->
+        <aside class="filters-sidebar" id="catalog-filters-sidebar" aria-label="Product filters">
+          <div class="filter-intro">
+            <span class="filter-intro-title">Filters</span>
+            <button class="filter-reset-btn" id="filter-reset-all">Reset all</button>
+          </div>
+
+          <!-- Category filter -->
+          <div class="filter-group">
+            <div class="filter-heading">
+              <span>Category</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11" stroke="#202322" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </div>
+            <div class="category-filter-list" id="catalog-category-filter-list"></div>
+          </div>
+
+          <!-- Price filter -->
+          <div class="filter-group bordered">
+            <div class="filter-heading">
+              <span>Price (QAR)</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11" stroke="#202322" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </div>
+            <div class="price-slider-wrap">
+              <div class="price-track-bg">
+                <div class="price-track-fill" id="price-track-fill" style="left: 0%; right: 0%;"></div>
+              </div>
+              <input type="range" class="price-range-input" id="price-min-range" min="0" max="2000" step="25" value="0" aria-label="Minimum price" />
+              <input type="range" class="price-range-input" id="price-max-range" min="0" max="2000" step="25" value="2000" aria-label="Maximum price" />
+            </div>
+            <div class="price-limits">
+              <div class="price-input-box">
+                <input type="text" id="price-min-input" value="QAR 0" aria-label="Minimum price value" />
+              </div>
+              <div class="price-input-box">
+                <input type="text" id="price-max-input" value="QAR 2,000" aria-label="Maximum price value" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Brand filter -->
+          <div class="filter-group bordered">
+            <div class="filter-heading">
+              <span>Brand</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11" stroke="#202322" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </div>
+            <div class="brand-options-list" id="catalog-brand-filter-list"></div>
+          </div>
+
+          <!-- Availability filter -->
+          <div class="availability-row">
+            <span>In stock only</span>
+            <button class="toggle-switch" id="stock-toggle" aria-label="Toggle in stock only">
+              <span class="toggle-thumb"></span>
+            </button>
+          </div>
+        </aside>
+
+        <!-- Product Results (1016px) -->
+        <section class="catalog-results">
+          <div class="results-toolbar">
+            <span class="results-count" id="catalog-results-count">6 products</span>
+            <div class="sort-control">
+              <label for="catalog-sort-select" style="font-size: 12px; color: var(--color-ink);">Sort by:</label>
+              <select id="catalog-sort-select" aria-label="Sort products">
+                <option value="featured">Featured</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="name-asc">Name: A to Z</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="catalog-grid" id="catalog-products-grid"></div>
+
+          <div class="results-end">
+            <span id="catalog-end-label">You've seen all 6 products. Just the essentials, nothing extra.</span>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========================================================================
+       SCREEN 3: PRODUCT DETAIL ([2:3501])
+       ======================================================================== -->
+  <main id="view-product" style="display: none;">
+    <div class="container pdp-page">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="#home" data-go-home>Home</a>
+        <span class="sep">/</span>
+        <a href="#catalog" id="pdp-bc-category">Audio</a>
+        <span class="sep">/</span>
+        <span class="current" id="pdp-bc-product">WH-1000XM5</span>
+      </nav>
+
+      <!-- Product Overview (1280 x 636) -->
+      <section class="product-overview">
+        <div class="product-gallery">
+          <div class="pdp-main-photo">
+            <img id="pdp-main-img" src="assets/images/4140f884579f6f4ed29fc748d8e5a3a301958387.png" alt="Sony WH-1000XM5" />
+          </div>
+          <div class="gallery-thumbnails">
+            <div id="pdp-thumbs-list" style="display: flex; gap: 12px;"></div>
+            <span class="gallery-instruction">A closer look, from every angle.</span>
+          </div>
+        </div>
+
+        <div class="purchase-info">
+          <div class="product-identity">
+            <span class="pdp-brand" id="pdp-brand">SONY</span>
+            <h1 class="pdp-title" id="pdp-title">WH-1000XM5</h1>
+            <p class="pdp-subtitle" id="pdp-subtitle">Wireless noise-canceling headphones</p>
+            <div class="customer-rating">
+              <span class="rating-stars">★★★★★</span>
+              <span class="rating-score" id="pdp-rating-score">4.8</span>
+              <span class="rating-reviews" id="pdp-reviews-link">128 reviews</span>
+            </div>
+          </div>
+
+          <div class="pdp-price" id="pdp-price">QAR 1,270</div>
+
+          <p class="pdp-description" id="pdp-description">
+            Meet your everyday escape. Exceptional noise cancellation, beautifully balanced sound, and all-day comfort in a light, considered design.
+          </p>
+
+          <div class="color-selection">
+            <span class="color-label" id="pdp-color-label">Color — Black</span>
+            <div class="color-options" id="pdp-color-options"></div>
+          </div>
+
+          <div class="pdp-cart-actions">
+            <div class="quantity-selector">
+              <button class="qty-btn" id="pdp-qty-minus" aria-label="Decrease quantity">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11" stroke="#202322" stroke-width="1.3" stroke-linecap="round"/></svg>
+              </button>
+              <span class="qty-value" id="pdp-qty-value">1</span>
+              <button class="qty-btn" id="pdp-qty-plus" aria-label="Increase quantity">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 3V11M3 7H11" stroke="#202322" stroke-width="1.3" stroke-linecap="round"/></svg>
+              </button>
+            </div>
+            <button class="btn-primary pdp-add-btn" id="pdp-add-to-cart-btn">
+              <span id="pdp-add-btn-label">Add to cart — QAR 1,270</span>
+            </button>
+          </div>
+
+          <div class="stock-delivery-list">
+            <div class="stock-row">
+              <span class="stock-dot" id="pdp-stock-dot"></span>
+              <span id="pdp-stock-label">In stock in Doha · Ready to ship</span>
+            </div>
+            <div class="delivery-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M14 18V6C14 4.89543 13.1046 4 12 4H4C2.89543 4 2 4.89543 2 6V17C2 17.5523 2.44772 18 3 18H5M14 18H9M14 18H17M14 8H18.5858C18.851 8 19.1054 8.10536 19.2929 8.29289L21.7071 10.7071C21.8946 10.8946 22 11.149 22 11.4142V17C22 17.5523 21.5523 18 21 18H20M9 18C9 19.1046 8.10457 20 7 20C5.89543 20 5 19.1046 5 18M9 18C9 16.8954 8.10457 16 7 16C5.89543 16 5 16.8954 5 18M20 18C20 19.1046 19.1046 20 18 20C16.8954 20 16 19.1046 16 18M20 18C20 16.8954 19.1046 16 18 16C16.8954 16 16 16.8954 16 18" stroke="#202322" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Free delivery · Same-day in Doha, 1–2 days across Qatar</span>
+            </div>
+            <div class="delivery-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C9.5 21 7.26 19.96 5.64 18.28M3 12L5.5 9.5M3 12L5.5 14.5" stroke="#202322" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>14-day easy returns · Official Qatar manufacturer warranty</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Product Specifications -->
+      <section class="pdp-specs-section">
+        <div class="info-tabs">
+          <button class="tab-btn active" data-tab="specs">Specifications</button>
+          <button class="tab-btn" data-tab="shipping">Shipping &amp; returns</button>
+          <button class="tab-btn" data-tab="reviews" id="pdp-tab-reviews">Reviews (128)</button>
+        </div>
+        <div id="pdp-tab-content"></div>
+      </section>
+
+      <!-- Related Products -->
+      <section class="related-section">
+        <h2 class="section-heading-28">A few other good things.</h2>
+        <div class="product-grid-4" id="pdp-related-grid"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ========================================================================
+       SCREEN 4: SHOPPING CART ([2:3658])
+       ======================================================================== -->
+  <main id="view-cart" style="display: none;">
+    <div class="container cart-page">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="#home" data-go-home>Home</a>
+        <span class="sep">/</span>
+        <span class="current">Shopping cart</span>
+      </nav>
+
+      <div class="cart-heading-row">
+        <div class="cart-title-group">
+          <h1 class="page-title-lg">Your cart.</h1>
+          <span class="cart-item-count" id="cart-header-count">2 items</span>
+        </div>
+        <a href="#catalog" class="continue-shopping-link" id="cart-continue-shopping">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M12.5 8H3.5M3.5 8L7.5 4M3.5 8L7.5 12" stroke="#202322" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Continue shopping</span>
+        </a>
+      </div>
+
+      <div class="cart-workspace">
+        <!-- Left Column: Cart Products (808px) -->
+        <div class="cart-products-col">
+          <div class="delivery-eligibility-banner">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M14 18V6C14 4.89543 13.1046 4 12 4H4C2.89543 4 2 4.89543 2 6V17C2 17.5523 2.44772 18 3 18H5M14 18H9M14 18H17M14 8H18.5858C18.851 8 19.1054 8.10536 19.2929 8.29289L21.7071 10.7071C21.8946 10.8946 22 11.149 22 11.4142V17C22 17.5523 21.5523 18 21 18H20M9 18C9 19.1046 8.10457 20 7 20C5.89543 20 5 19.1046 5 18M9 18C9 16.8954 8.10457 16 7 16C5.89543 16 5 16.8954 5 18M20 18C20 19.1046 19.1046 20 18 20C16.8954 20 16 19.1046 16 18M20 18C20 16.8954 19.1046 16 18 16C16.8954 16 16 16.8954 16 18" stroke="#202322" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span id="cart-shipping-message">Good news. Your order qualifies for free Doha &amp; Qatar delivery.</span>
+          </div>
+
+          <div id="cart-items-list"></div>
+
+          <div class="cart-support-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7118 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0035 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C4.00061 9.92179 4.44061 8.37488 5.27072 7.03258C6.10083 5.69028 7.28825 4.6056 8.7 3.90003C9.87812 3.30496 11.1801 2.99659 12.5 3.00003H13C15.0843 3.11502 17.053 3.99479 18.5291 5.47089C20.0052 6.94699 20.885 8.91568 21 11V11.5Z" stroke="#202322" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Need help in Doha?</span>
+            <a href="#support" class="cart-support-link" onclick="event.preventDefault();">WhatsApp support (+974 4400 8800)</a>
+          </div>
+        </div>
+
+        <!-- Right Column: Order Summary (408 x 473) -->
+        <aside class="order-summary-card" aria-label="Order summary">
+          <h2 class="summary-heading">Order summary</h2>
+
+          <div class="cost-breakdown">
+            <div class="cost-row">
+              <span class="cost-label" id="summary-subtotal-label">Subtotal (2 items)</span>
+              <span class="cost-amount" id="summary-subtotal-amount">QAR 1,485</span>
+            </div>
+            <div class="cost-row">
+              <span class="cost-label">Delivery (Qatar)</span>
+              <span class="cost-amount" id="summary-shipping-amount">Free</span>
+            </div>
+            <div class="cost-row">
+              <span class="cost-label">VAT (Qatar)</span>
+              <span class="cost-amount small">0% (No VAT in Qatar)</span>
+            </div>
+          </div>
+
+          <div class="promo-section">
+            <label for="promo-code-input" class="promo-label">Have a promo code? (Try QATAR10)</label>
+            <div class="promo-input-box">
+              <input type="text" id="promo-code-input" placeholder="Enter code" />
+              <button class="promo-apply-btn" id="promo-apply-btn">Apply</button>
+            </div>
+          </div>
+
+          <div class="summary-total-row">
+            <span class="total-label">Total (QAR)</span>
+            <span class="total-amount" id="summary-total-amount">QAR 1,485</span>
+          </div>
+
+          <button class="btn-primary checkout-btn" id="checkout-btn">
+            <span>Continue to checkout</span>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M3.75 9H14.25M14.25 9L9.375 4.125M14.25 9L9.375 13.875" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <div class="payment-assurance">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="11" width="18" height="11" rx="2" stroke="#202322" stroke-width="1.6"/>
+              <path d="M7 11V7C7 4.23858 9.23858 2 12 2C14.7614 2 17 4.23858 17 7V11" stroke="#202322" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <span>Apple Pay, NAPS / Himyan, Visa, Mastercard &amp; Cash on Delivery</span>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Purchase Reassurance Bar -->
+      <div class="purchase-reassurance-bar">
+        <div class="reassurance-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C9.5 21 7.26 19.96 5.64 18.28M3 12L5.5 9.5M3 12L5.5 14.5" stroke="#202322" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>14-day easy returns across Qatar</span>
+        </div>
+        <div class="reassurance-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="#202322" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 12L11 14L15 10" stroke="#202322" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Official Qatar warranty</span>
+        </div>
+        <div class="reassurance-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M16.5 9.4L7.55 4.24M21 16V8C20.9996 7.64927 20.9071 7.30481 20.7315 7.00116C20.556 6.69751 20.3037 6.44536 20 6.27L13 2.27C12.696 2.09446 12.3511 2.00205 12 2.00205C11.6489 2.00205 11.304 2.09446 11 2.27L4 6.27C3.69626 6.44536 3.44398 6.69751 3.26846 7.00116C3.09294 7.30481 3.00036 7.64927 3 8V16C3.00036 16.3507 3.09294 16.6952 3.26846 16.9988C3.44398 17.3025 3.69626 17.5546 4 17.73L11 21.73C11.304 21.9055 11.6489 21.9979 12 21.9979C12.3511 21.9979 12.696 21.9055 13 21.73L20 17.73C20.3037 17.5546 20.556 17.3025 20.7315 16.9988C20.9071 16.6952 20.9996 16.3507 21 16Z" stroke="#202322" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3.27 6.96L12 12.01L20.73 6.96M12 22.08V12" stroke="#202322" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Same-day delivery in Doha &amp; Lusail</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========================================================================
+       SHARED FOOTER (1440 x 210)
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-content">
+        <div class="footer-brand-col">
+          <a href="#home" class="footer-brand" id="footer-brand-logo" data-go-home>afcore</a>
+          <p class="footer-promise" id="footer-brand-promise">Good technology. Less noise. Delivered across Qatar.</p>
+        </div>
+
+        <div class="footer-links-col">
+          <span class="footer-group-heading">Explore</span>
+          <div class="footer-links-text">
+            <a href="#catalog" data-footer-cat="All products">Shop all</a> &nbsp;&nbsp;/&nbsp;&nbsp;
+            <a href="#audio" data-footer-cat="Audio">Audio</a> &nbsp;&nbsp;/&nbsp;&nbsp;
+            <a href="#computing" data-footer-cat="Computing">Computing</a><br/>
+            <a href="#accessories" data-footer-cat="Accessories">Accessories</a> &nbsp;&nbsp;/&nbsp;&nbsp;
+            <a href="admin.html">Admin Console</a>
+          </div>
+        </div>
+
+        <div class="footer-links-col">
+          <span class="footer-group-heading">Here to help</span>
+          <div class="footer-links-text">
+            <a href="#shipping" onclick="event.preventDefault();">Doha delivery &amp; returns</a> &nbsp;&nbsp;/&nbsp;&nbsp;
+            <a href="#contact" onclick="event.preventDefault();">Contact Qatar team</a><br/>
+            <a href="#faq" onclick="event.preventDefault();">FAQs</a> &nbsp;&nbsp;/&nbsp;&nbsp;
+            <a href="#track" onclick="event.preventDefault();">Track your order</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-legal">
+        <span id="footer-copyright">© 2026 afcore Qatar. All rights reserved.</span>
+        <div class="footer-legal-links">
+          <a href="#privacy" onclick="event.preventDefault();">Privacy policy</a>
+          <a href="#terms" onclick="event.preventDefault();">Terms of service</a>
+          <span>Doha, Qatar · QAR (ر.ق)</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <span id="toast-text">Added to cart</span>
+    <button class="toast-action" id="toast-action">View cart →</button>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div class="modal-backdrop" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-modal-title">
+    <div class="modal-card">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h2 id="checkout-modal-title" style="font-size: 22px; font-weight: 500;">Checkout — afcore Qatar</h2>
+        <button id="close-modal-btn" style="font-size: 18px; color: var(--color-muted);">✕</button>
+      </div>
+      <p style="font-size: 13px; color: var(--color-muted); line-height: 1.5;">
+        Same-day courier delivery across Doha, Lusail, and The Pearl-Qatar. Orders placed here appear immediately in the Admin Console.
+      </p>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div class="price-input-box" style="height: 42px;">
+          <input type="text" id="checkout-name-input" placeholder="Full name" value="Rashid Al-Thani" />
+        </div>
+        <div class="price-input-box" style="height: 42px;">
+          <input type="email" id="checkout-email-input" placeholder="Email address" value="rashid@afcore.qa" />
+        </div>
+        <div class="price-input-box" style="height: 42px;">
+          <input type="tel" id="checkout-phone-input" placeholder="Qatar mobile (+974)" value="+974 5512 8900" />
+        </div>
+        <div class="price-input-box" style="height: 42px;">
+          <input type="text" id="checkout-address-input" placeholder="Area, Street, Building / Zone (Doha, Qatar)" value="The Pearl-Qatar, Porto Arabia Tower 14, Doha" />
+        </div>
+        <div class="price-input-box" style="height: 42px;">
+          <select id="checkout-payment-input" style="width: 100%; border: none; outline: none; background: transparent; font-size: 13px;">
+            <option value="Apple Pay / Card (QAR)">Apple Pay / Credit Card (QAR)</option>
+            <option value="NAPS / Himyan Qatar Debit Card">NAPS / Himyan Qatar Debit Card</option>
+            <option value="Cash on Delivery (Qatar)">Cash on Delivery (Qatar)</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn-primary" id="confirm-order-btn" style="width: 100%;">
+        <span>Place order (QAR)</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Floating Figma Screen Quick-Switcher -->
+  <div class="figma-screen-switcher" aria-label="Figma Screen Switcher">
+    <button class="switcher-btn active" data-screen="home">1 · Home</button>
+    <button class="switcher-btn" data-screen="catalog">2 · Catalog</button>
+    <button class="switcher-btn" data-screen="product">3 · Product Detail</button>
+    <button class="switcher-btn" data-screen="cart">4 · Cart</button>
+    <a href="admin.html" class="switcher-btn" style="color: var(--color-primary); font-weight: 600;">5 · Admin ⚙</a>
+  </div>
+
+  <script src="store-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
